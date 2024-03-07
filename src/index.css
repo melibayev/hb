@@ -10,4 +10,10 @@
 
 body {
   scroll-behavior: smooth;
+  height: 10000px;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
 }

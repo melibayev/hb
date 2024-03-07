@@ -1,0 +1,42 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+}
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    margin-bottom: 12px;
+    &-top {
+        padding: 6px 0;
+        text-align: center;
+        color: #FFF;
+        background-color: black;
+    }
+    &-logo {
+        img {
+            width: 180px;
+        }
+    }
+    &-gender {
+        display: flex;
+        justify-content: center;
+        column-gap: 20px;
+    }
+    &-items {
+        display: flex;
+        justify-content: flex-end;
+        column-gap: 20px;
+    }
+    &-links {
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        column-gap: 20px;
+        text-transform: uppercase;
+    }
+}
