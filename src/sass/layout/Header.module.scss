@@ -4,8 +4,17 @@ nav {
     left: 0;
     width: 100%;
     z-index: 1000;
+    transition: .5s ease-in-out;
     background-color: transparent;
+    &:hover {
+        background-color: #000;
+    }
 }
+
+.scrolled {
+    background-color: #000;
+}
+
 .navbar {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -26,17 +35,33 @@ nav {
         display: flex;
         justify-content: center;
         column-gap: 20px;
+        a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #FFF;
+            text-transform: uppercase;
+        }
     }
     &-items {
         display: flex;
+        align-items: center;
         justify-content: flex-end;
         column-gap: 20px;
+        svg {
+            font-size: 22px;
+            color: #FFF;
+        }
     }
     &-links {
-        padding-bottom: 10px;
         display: flex;
         justify-content: center;
-        column-gap: 20px;
+        column-gap: 30px;
+        padding-bottom: 10px;
         text-transform: uppercase;
+        a {
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: #FFF;
+        }
     }
 }
