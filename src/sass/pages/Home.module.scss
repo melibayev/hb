@@ -66,3 +66,70 @@
     text-transform: uppercase;
     text-align: center;
 }
+
+.categories {
+    margin: 80px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+
+.luggage-category {
+    img {
+        width: 100%;
+    }
+}
+
+.hoodie-category {
+    video {
+        width: 100%;
+    }
+}
+
+.luggage-category,
+.hoodie-category {
+    position: relative;
+    h1 {
+        position: absolute;
+        left: 15%;
+        bottom: 30%;
+        max-width: 350px;
+        font-size: 54px;
+        font-weight: 600;
+        line-height: 64px;
+        color: #fff;
+    }
+    button {
+        position: absolute;
+        left: 15%;
+        bottom: calc(30% - 80px);
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 14px 32px;
+        font-size: 16px;
+        font-weight: 500;
+        transition: .3s;
+        text-transform: uppercase;
+        
+        svg {
+            position: absolute;
+            right: 16px;
+            font-weight: 400;
+            opacity: 0;
+            transition: .3s;
+        }
+        p {
+            transition:  .3s;
+        }
+        &:hover {
+            p {
+                transform: translate(-10px);
+            }
+            svg {
+                opacity: 1;
+                right: 12px;
+            }
+        }
+    }
+}

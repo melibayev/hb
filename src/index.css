@@ -26,6 +26,11 @@ body {
   margin: 0 auto;
 }
 
+.container-slider {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
 a {
   color: #000;
   text-decoration: none;

@@ -30,6 +30,9 @@ export const settings = {
     slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
+    swipeToSlide: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [

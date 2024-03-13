@@ -6,9 +6,8 @@ import { homeProducts } from '../data/products.js';
 
 // icons and imgs
 import { FaArrowRightLong } from "react-icons/fa6";
-// import VIDEO1 from '../assests/videos/1.mp4';
-// import VIDEO2 from '../assests/videos/2.mp4';
-// import VIDEO3 from '../assests/videos/3.mp4';
+import LUGGAGE_IMG from '../assests/home_images/luggage.jpg'
+import HOODIE_VIDEO from '../assests/videos/hoodie.mp4'
 
 // styles
 import styles from '../sass/pages/Home.module.scss'
@@ -43,7 +42,7 @@ const Home = () => {
       </section>
 
       <section id={styles['products']}>
-          <div className="container">
+          <div className="container-slider">
               <div className={styles['products-title']}>
                 Hand-picked for you
               </div>
@@ -54,6 +53,25 @@ const Home = () => {
                   ))}
                 </Slider>
               </div>
+          </div>
+      </section>
+
+      <section id={styles.categories}>
+          <div className="container">
+            <div className={styles.categories}>
+              <div className={styles['luggage-category']}>
+                <img src={LUGGAGE_IMG} alt="" />
+                <h1>Timeless Travel bags</h1>
+                <button><p>Shop now </p><FaArrowRightLong /></button>  
+              </div>
+              <div className={styles['hoodie-category']}>
+                <video muted autoPlay loop>
+                  <source src={HOODIE_VIDEO} type='video/mp4'/>
+                </video>
+                <h1>One hoodie, many shades</h1>
+                <button><p>Shop now </p><FaArrowRightLong /></button>    
+              </div>
+            </div>
           </div>
       </section>
     </>
