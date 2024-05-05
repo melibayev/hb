@@ -169,6 +169,19 @@
 }
 
 @media (max-width: 480px) {
+    .home-banner {
+        h1 {
+            padding: 0 10px;
+            bottom: 20%;
+            font-size: 36px;
+        }
+        &-btns {
+            flex-direction: column;
+            gap: 24px;
+            left: calc(50% - 90px);
+            bottom: calc(10% - 30px);
+        }
+    }
     .luggage-category,
     .hoodie-category {
         h1 {

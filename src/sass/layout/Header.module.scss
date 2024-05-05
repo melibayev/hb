@@ -74,8 +74,21 @@ nav {
         &-gender {
             display: none;
         }
+        &-items {
+            &-like {
+                display: none;
+            }
+        }
         &-links {
             display: none;
+        }
+    }
+}
+@media (max-width: 480px) {
+    .navbar {
+        &-top {
+            padding: 10px;
+            font-size: 14px;
         }
     }
 }

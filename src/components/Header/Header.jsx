@@ -38,7 +38,7 @@ const Header = () => {
             </div>
             <div className={styles['navbar-items']}>
                 <p><IoIosSearch /></p>
-                <p><GoHeart /></p>
+                <p className={styles['navbar-items-like']}><GoHeart /></p>
                 <p><IoBagHandleOutline /></p>
             </div>
           </div>
