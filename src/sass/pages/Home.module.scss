@@ -137,6 +137,7 @@
 @media (max-width: 992px) {
     .categories {
         grid-template-columns: 1fr;
+        row-gap: 24px;
     }
     .luggage-category,
     .hoodie-category {
@@ -145,6 +146,14 @@
         }
         button {
             left: 5%;
+        }
+    }
+    .luggage-category {
+        img {
+            height: 100%;
+        }
+        h1 {
+            bottom: 25%;
         }
     }
 }
@@ -166,33 +175,42 @@
             bottom: calc(40% - 80px);
         }
     }
+    .luggage-category {
+        h1 {
+            bottom: 30%;
+        }
+    }
 }
 
 @media (max-width: 480px) {
     .home-banner {
         h1 {
             padding: 0 10px;
-            bottom: 20%;
+            bottom: 30%;
             font-size: 36px;
         }
         &-btns {
             flex-direction: column;
             gap: 24px;
             left: calc(50% - 90px);
-            bottom: calc(10% - 30px);
+            bottom: calc(20% - 60px);
         }
     }
     .luggage-category,
     .hoodie-category {
         h1 {
-            left: 5%;
-            bottom: 35%;
+            bottom: 40%;
             font-size: 24px;
-            line-height: 48px;
+            line-height: 32px;
         }
         button {
             left: 5%;
-            bottom: calc(35% - 60px);
+            bottom: calc(40% - 60px);
+        }
+    }
+    .luggage-category {
+        h1 {
+            bottom: 30%;
         }
     }
 }

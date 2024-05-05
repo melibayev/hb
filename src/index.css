@@ -19,6 +19,7 @@ body {
   scroll-behavior: smooth;
   height: 10000px;
   font-family: 'AvertaDemoPE-Regular';
+  color: #000;
 }
 
 .container {
