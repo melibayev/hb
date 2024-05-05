@@ -186,14 +186,14 @@
     .home-banner {
         h1 {
             padding: 0 10px;
-            bottom: 40%;
+            bottom: 30%;
             font-size: 36px;
         }
         &-btns {
             flex-direction: column;
             gap: 18px;
             left: calc(50% - 90px);
-            bottom: calc(30% - 80px);
+            bottom: calc(20% - 80px);
         }
     }
     .luggage-category,
