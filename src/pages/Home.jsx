@@ -23,11 +23,19 @@ const Home = () => {
   useState(() => {
     getRandomVideo()
   }, [randomVideo])
-  
+
+  useEffect(() => {
+    const videos = document.getElementsByTagName("video");
+    for (let video of videos) {
+      video.setAttribute("playsinline", "");
+      video.setAttribute("muted", "");
+      video.play();
+    }
+  }, []);
   return (
     <>
       <section id={styles['home-banner']}>
-        <video playsinline muted autoPlay loop>
+        <video muted autoPlay loop>
           <source src={randomVideo} type='video/mp4'/>
         </video>
         <div className="container">
@@ -65,7 +73,7 @@ const Home = () => {
                 <button><p>Shop now </p><FaArrowRightLong /></button>  
               </div>
               <div className={styles['second-category']}>
-                <video playsinline muted autoPlay loop>
+                <video muted autoPlay loop>
                   <source src={HOODIE_VIDEO} type='video/mp4'/>
                 </video>
                 <h1>One hoodie, many shades</h1>
