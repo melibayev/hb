@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       <section id={styles['home-banner']}>
-        <video muted autoPlay loop>
+        <video playsinline muted autoPlay loop>
           <source src={randomVideo} type='video/mp4'/>
         </video>
         <div className="container">
@@ -59,13 +59,13 @@ const Home = () => {
       <section id={styles.categories}>
           <div className="container">
             <div className={styles.categories}>
-              <div className={styles['luggage-category']}>
+              <div className={styles['first-category']}>
                 <img src={LUGGAGE_IMG} alt="" />
                 <h1>Timeless Travel bags</h1>
                 <button><p>Shop now </p><FaArrowRightLong /></button>  
               </div>
-              <div className={styles['hoodie-category']}>
-                <video muted autoPlay loop>
+              <div className={styles['second-category']}>
+                <video playsinline muted autoPlay loop>
                   <source src={HOODIE_VIDEO} type='video/mp4'/>
                 </video>
                 <h1>One hoodie, many shades</h1>

@@ -39,6 +39,7 @@
             font-size: 16px;
             font-weight: 500;
             transition: .5s;
+            color: #000;
             svg {
                 position: absolute;
                 right: 4px;
@@ -73,20 +74,20 @@
     column-gap: 20px;
 }
 
-.luggage-category {
+.first-category {
     img {
         width: 100%;
     }
 }
 
-.hoodie-category {
+.second-category {
     video {
         width: 100%;
     }
 }
 
-.luggage-category,
-.hoodie-category {
+.first-category,
+.second-category {
     position: relative;
     h1 {
         position: absolute;
@@ -111,7 +112,7 @@
         font-weight: 500;
         transition: .3s;
         text-transform: uppercase;
-        
+        color: #000;
         svg {
             position: absolute;
             right: 16px;
@@ -139,8 +140,8 @@
         grid-template-columns: 1fr;
         row-gap: 24px;
     }
-    .luggage-category,
-    .hoodie-category {
+    .first-category,
+    .second-category {
         h1 {
             left: 5%;
         }
@@ -148,7 +149,7 @@
             left: 5%;
         }
     }
-    .luggage-category {
+    .first-category {
         img {
             height: 100%;
         }
@@ -162,8 +163,8 @@
     .categories {
         grid-template-columns: 1fr;
     }
-    .luggage-category,
-    .hoodie-category {
+    .first-category,
+    .second-category {
         h1 {
             left: 5%;
             bottom: 40%;
@@ -175,7 +176,7 @@
             bottom: calc(40% - 80px);
         }
     }
-    .luggage-category {
+    .first-category {
         h1 {
             bottom: 30%;
         }
@@ -196,8 +197,8 @@
             bottom: calc(20% - 80px);
         }
     }
-    .luggage-category,
-    .hoodie-category {
+    .first-category,
+    .second-category {
         h1 {
             bottom: 40%;
             font-size: 24px;
@@ -208,7 +209,7 @@
             bottom: calc(40% - 60px);
         }
     }
-    .luggage-category {
+    .first-category {
         h1 {
             bottom: 30%;
         }
