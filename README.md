@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a e-commerce platform in which users can buy items(clothes).
+This is an e-commerce platform in which users can buy items(clothes).
 
 ## Status
 
