@@ -192,10 +192,30 @@
         }
         &-btns {
             flex-direction: column;
+            width: 100%;
             gap: 18px;
-            left: calc(50% - 90px);
+            left: 0;
+            justify-content: center;
+            align-items: center;
             bottom: calc(20% - 80px);
+            button {
+                max-width: 300px;
+                padding: 10px 24px;
+                &:hover {
+                    padding-right: 34px;
+                    svg {
+                        opacity: 1;
+                        right: 8px;
+                    }
+                }
+            }
         }
+    }
+    .products-title {
+        margin: 40px 0 20px;
+        padding: 0 10px;
+        font-weight: 800;
+        font-size: 24px;
     }
     .first-category,
     .second-category {
@@ -205,6 +225,7 @@
             line-height: 32px;
         }
         button {
+            padding: 10px 24px;
             left: 5%;
             bottom: calc(40% - 60px);
         }
