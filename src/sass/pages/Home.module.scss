@@ -133,3 +133,53 @@
         }
     }
 }
+
+@media (max-width: 992px) {
+    .categories {
+        grid-template-columns: 1fr;
+    }
+    .luggage-category,
+    .hoodie-category {
+        h1 {
+            left: 5%;
+        }
+        button {
+            left: 5%;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .categories {
+        grid-template-columns: 1fr;
+    }
+    .luggage-category,
+    .hoodie-category {
+        h1 {
+            left: 5%;
+            bottom: 40%;
+            font-size: 36px;
+            line-height: 48px;
+        }
+        button {
+            left: 5%;
+            bottom: calc(40% - 80px);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .luggage-category,
+    .hoodie-category {
+        h1 {
+            left: 5%;
+            bottom: 35%;
+            font-size: 24px;
+            line-height: 48px;
+        }
+        button {
+            left: 5%;
+            bottom: calc(35% - 60px);
+        }
+    }
+}

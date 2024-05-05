@@ -65,3 +65,17 @@ nav {
         }
     }
 }
+
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 0 20px 0 8px;
+        grid-template-columns: 1fr 1fr;
+        &-gender {
+            display: none;
+        }
+        &-links {
+            display: none;
+        }
+    }
+}
