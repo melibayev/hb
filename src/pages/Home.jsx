@@ -6,7 +6,7 @@ import { homeProducts } from '../data/products.js';
 
 // icons and imgs
 import { FaArrowRightLong } from "react-icons/fa6";
-import LUGGAGE_IMG from '../assests/home_images/luggage.jpg'
+import LUGGAGE_IMG from '../assests/home_images/luggage.webp'
 import HOODIE_VIDEO from '../assests/videos/demo/hoodie.mp4'
 
 // styles

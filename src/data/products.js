@@ -1,9 +1,9 @@
-import IMG1 from '../assests/home_images/img1.jpg'
-import IMG2 from '../assests/home_images/img2.jpg'
-import IMG3 from '../assests/home_images/img3.jpg'
-import IMG4 from '../assests/home_images/img4.jpg'
-import IMG5 from '../assests/home_images/img5.jpg'
-import IMG6 from '../assests/home_images/img6.jpg'
+import IMG1 from '../assests/home_images/img1.webp'
+import IMG2 from '../assests/home_images/img2.webp'
+import IMG3 from '../assests/home_images/img3.webp'
+import IMG4 from '../assests/home_images/img4.webp'
+import IMG5 from '../assests/home_images/img5.webp'
+import IMG6 from '../assests/home_images/img6.webp'
 export const homeProducts = [
     {
         id: 1,

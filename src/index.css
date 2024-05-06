@@ -72,10 +72,10 @@ button {
 }
 
 .slick-next {
-  right: 0px !important;
+  right: 10px !important;
 }
 
 .slick-prev {
-  left: 0 !important;
+  left: 10px !important;
   z-index: 10;
 }
