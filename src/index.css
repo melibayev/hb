@@ -17,7 +17,6 @@
 
 body {
   scroll-behavior: smooth;
-  height: 10000px;
   font-family: 'AvertaDemoPE-Regular';
   color: #000;
   background-color: #f9f9f9;
@@ -43,6 +42,7 @@ button {
   cursor: pointer;
 }
 
+/* slider styles (start) */
 .nextArrow, 
 .prevArrow {
   display: block !important;
@@ -79,3 +79,21 @@ button {
   left: 10px !important;
   z-index: 10;
 }
+/* slider styles (end) */
+
+/* footer menu styles (start) */
+.ant-menu-submenu-title {
+  padding: 36px;
+  background-color: none !important;
+  border-bottom: 1px solid #b7b7b7;
+  border-radius: 0px !important;
+  margin: 0 !important;
+  width: 100% !important;
+} 
+.ant-menu-submenu-title:focus {
+  background-color: none !important;
+}
+.ant-menu-submenu-title:hover {
+  background-color: none !important;
+}
+/* footer menu styles (end) */
