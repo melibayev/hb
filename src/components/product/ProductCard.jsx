@@ -6,9 +6,7 @@ const ProductCard = ({ desc, img, price }) => {
     <>
         <div className={styles.card}>
             <div className={styles['card-img']}>
-                <LazyLoad>
-                    <img src={ img } />
-                </LazyLoad>
+                <img src={ img } />
             </div>
             <div className={styles['card-desc']}>
                 <p>{desc}</p>
