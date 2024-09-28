@@ -1,10 +1,13 @@
 import LazyLoad from 'react-lazy-load'
+import { NavLink } from 'react-router-dom'
+
 import styles from '../../sass/cards/ProductCard.module.scss'
 
-const ProductCard = ({ desc, img, price }) => {
+const ProductCard = ({ id, desc, img, price }) => {
   return (
     <>
-        <div className={styles.card}>
+      <NavLink to={`/product/${id}`}>
+          <div className={styles.card}>
             <div className={styles['card-img']}>
                 <img src={ img } />
             </div>
@@ -12,7 +15,8 @@ const ProductCard = ({ desc, img, price }) => {
                 <p>{desc}</p>
                 <span>{price}</span>
             </div>
-        </div>
+          </div>
+        </NavLink>
     </>
   )
 }

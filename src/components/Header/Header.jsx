@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 // icons and images
 import { IoIosSearch } from "react-icons/io";
@@ -9,7 +10,6 @@ import LOGO from '../../assests/header/logo.png'
 
 // styles
 import styles from '../../sass/layout/Header.module.scss'
-import { NavLink } from 'react-router-dom';
 
 
 const Header = () => {
@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <header>
       <nav className={isScrolled ? styles['scrolled'] : null}>
-          <div className={styles['navbar-top']}>
+          <div className={`${styles['navbar-top']}`}>
             <p>Free Standard Shipping on orders of 100 € or more</p>
           </div>
         <div className="container">
