@@ -40,6 +40,7 @@ const Product = () => {
                 <p className={styles['product-info-description']}>{product.about}</p>
             </div>
         </div>
+        <div></div>
     </section>
   )
 }
