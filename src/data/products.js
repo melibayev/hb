@@ -28,6 +28,7 @@ import IMG6_gal1 from '../assests/home_images/img6(1).jpg'
 import IMG6_gal2 from '../assests/home_images/img6(2).jpg'
 import IMG6_gal3 from '../assests/home_images/img6(3).jpg'
 import IMG6_gal4 from '../assests/home_images/img6(4).jpg'
+
 export const homeProducts = [
     {
         id: 1,

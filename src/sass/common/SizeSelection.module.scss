@@ -1,0 +1,41 @@
+.size {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    padding: 100px;
+    width: 50%;
+    height: 100%;
+    z-index: 10000;
+    transition: .5s;
+    background-color: #fff;
+
+    &-selection-title {
+        display: flex;
+        justify-content: space-between;
+        font-size: 24px;
+        margin-bottom: 32px;
+    }
+    & p {
+        font-size: 22px;
+        margin-bottom: 32px;
+    }
+
+    &-selection-options {
+        display: flex;
+        flex-direction: row;
+        column-gap: 12px;
+        button {
+            padding: 10px 20px;
+            border: 1px solid #e8e8e8;
+            border-radius: 16px;
+            background-color: #fff;
+            &.active {
+                background-color: #e8e8e8;
+            }
+        }
+    }
+}
+
+.open {
+    right: 0;
+}
