@@ -1,0 +1,38 @@
+.removed-to-like {
+    position: fixed;
+    top: 180px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+    width: 44%;
+    opacity: 0;
+    z-index: -1;
+    border-radius: 20px;
+    transition: .6s ease-in-out;
+    background-color: #fff;
+    &.active {
+        opacity: 1;
+        z-index: 10000;
+    }
+}
+
+.like {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 24px;
+    &-info {
+        p {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        span {
+            text-decoration: underline;
+        }
+        &-xmark svg{
+            margin-top: 2px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+}

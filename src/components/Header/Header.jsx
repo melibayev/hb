@@ -2,6 +2,9 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useLike } from '../context/LikeContext';
+import { useRemoveLike } from '../context/RemoveLikeContext';
+
 
 // icons and images
 import { IoIosSearch } from "react-icons/io";
@@ -16,6 +19,8 @@ import styles from '../../sass/layout/Header.module.scss'
 const Header = () => {
   const [ isScrolled, setIsScrolled ] = useState(false)
   const { addToCart } = useCart()
+  const { addToLike } = useLike()
+  const { removeAddToLike } = useRemoveLike()
   const cartSize = JSON.parse(localStorage.getItem('cart'))?.length || 0
   const handleScroll = () => {
     (window.scrollY > 50 || window.pageYOffset > 50) ? setIsScrolled(true) : setIsScrolled(false)
@@ -26,7 +31,7 @@ const Header = () => {
 
   return (
     <header>
-      <nav className={isScrolled || addToCart ? styles['scrolled'] : null}>
+      <nav className={isScrolled || addToCart || addToLike || removeAddToLike ? styles['scrolled'] : null}>
           <div className={`${styles['navbar-top']}`}>
             <p>Free Standard Shipping on orders of 100 € or more</p>
           </div>

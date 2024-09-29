@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { homeProducts } from '../data/products';
 import { useSizeWindow } from '../components/context/SizeWindowContext';
+import { useCart } from '../components/context/CartContext';
+import { useLike } from '../components/context/LikeContext';
+import { useRemoveLike } from '../components/context/RemoveLikeContext';
 
 //imgs and icons
-import { GoHeart } from "react-icons/go";
+import { GoHeart, GoHeartFill } from "react-icons/go";
+
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 
@@ -13,7 +17,8 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import styles from '../sass/pages/Product.module.scss'
 import SizeSelection from '../components/sizeSelection/SizeSelection';
 import AddedToCart from '../components/notifications/AddedToCart';
-import { useCart } from '../components/context/CartContext';
+import AddedToLike from '../components/notifications/AddedToLike';
+import RemovedFromLike from '../components/notifications/RemovedFromLike';
 
 
 const Product = () => {
@@ -22,6 +27,10 @@ const Product = () => {
     const { isOpened, setIsOpened } = useSizeWindow(); 
     const size = localStorage.getItem(`selectedSize-${id}`) || '';
     const { addToCart, setAddToCart } = useCart()
+    const { addToLike, setAddToLike } = useLike()
+    const { removeAddToLike, setRemoveAddToLike } = useRemoveLike()
+    const [ liked, setLiked ] = useState(false)
+
     useEffect(() => {
         isOpened ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
         return () => {
@@ -60,11 +69,44 @@ const Product = () => {
         }
     };
     
+    const handleAddToLike = () => {
+        let likes = JSON.parse(localStorage.getItem('likes')) || [];
+        const isAlreadyLiked = likes.some((item) => item.id === product.id);
+        if (isAlreadyLiked) {
+            const removedProduct = likes.find((item) => item.id === product.id);
+            localStorage.setItem('removedLike', removedProduct.desc);
+            likes = likes.filter((item) => item.id !== product.id);
+            setAddToLike(false)
+            setLiked(false)
+            setRemoveAddToLike(true)
+        } else {
+            const likedItem = {
+                id: product.id,
+                desc: product.desc,
+                price: product.price,
+                about: product.about,
+                size: size,
+                img: product.imgs[product.imgs.length - 1]  
+            };
+    
+            likes.push(likedItem);
+            setAddToLike(true)
+            setLiked(true)
+            setRemoveAddToLike(false)
+        }
+    
+        localStorage.setItem('likes', JSON.stringify(likes));
+    };
+    
+    
+
   return (
     <>
     <SizeSelection />
     <AddedToCart />
-    <div className={`${isOpened || addToCart ? styles['wrapper'] : ''}`} onClick={ () => setIsOpened(false)}></div>
+    <AddedToLike />
+    <RemovedFromLike />
+    <div className={`${isOpened || addToCart || addToLike || removeAddToLike ? styles['wrapper'] : ''}`} onClick={ () => setIsOpened(false)}></div>
     <section id={styles.product}>
         <div className={styles['product-image']}>
             {product.imgs.map(el => (
@@ -75,7 +117,10 @@ const Product = () => {
             <div className={styles["product-info-container"]}>
                 <div className={styles['product-info-title']}>
                     <h4>{product.desc}</h4>
-                    <div>{<GoHeart />}</div>
+                    {liked ? 
+                        <div onClick={handleAddToLike}>{<GoHeartFill />}</div> :
+                        <div onClick={handleAddToLike}>{<GoHeart />}</div>
+                    }
                 </div>
                 <p>{product.price}</p>
 
