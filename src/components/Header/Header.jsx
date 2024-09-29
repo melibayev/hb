@@ -16,6 +16,7 @@ import styles from '../../sass/layout/Header.module.scss'
 const Header = () => {
   const [ isScrolled, setIsScrolled ] = useState(false)
   const { addToCart } = useCart()
+  const cartSize = JSON.parse(localStorage.getItem('cart'))?.length || 0
   const handleScroll = () => {
     (window.scrollY > 50 || window.pageYOffset > 50) ? setIsScrolled(true) : setIsScrolled(false)
   }
@@ -41,7 +42,7 @@ const Header = () => {
             <div className={styles['navbar-items']}>
                 <p><IoIosSearch /></p>
                 <p className={styles['navbar-items-like']}><GoHeart /></p>
-                <p><IoBagHandleOutline /></p>
+                <p><IoBagHandleOutline /> <div className={`${styles['added']} ${cartSize <= 0 ? styles['not-active'] : ''}`}>{cartSize}</div></p>
             </div>
           </div>
           <div className={styles['navbar-links']}>
