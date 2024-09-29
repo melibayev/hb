@@ -22,6 +22,7 @@ const Header = () => {
   const { addToLike } = useLike()
   const { removeAddToLike } = useRemoveLike()
   const cartSize = JSON.parse(localStorage.getItem('cart'))?.length || 0
+  const likeSize = JSON.parse(localStorage.getItem('likes'))?.length || 0
   const handleScroll = () => {
     (window.scrollY > 50 || window.pageYOffset > 50) ? setIsScrolled(true) : setIsScrolled(false)
   }
@@ -46,7 +47,7 @@ const Header = () => {
             </div>
             <div className={styles['navbar-items']}>
                 <p><IoIosSearch /></p>
-                <p className={styles['navbar-items-like']}><GoHeart /></p>
+                <p className={styles['navbar-items-like']}><GoHeart /> <div className={`${styles['added']} ${likeSize <= 0 ? styles['not-active'] : ''}`}>{likeSize}</div></p>
                 <p><IoBagHandleOutline /> <div className={`${styles['added']} ${cartSize <= 0 ? styles['not-active'] : ''}`}>{cartSize}</div></p>
             </div>
           </div>
