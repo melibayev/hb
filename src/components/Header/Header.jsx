@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 // icons and images
 import { IoIosSearch } from "react-icons/io";
@@ -14,6 +15,7 @@ import styles from '../../sass/layout/Header.module.scss'
 
 const Header = () => {
   const [ isScrolled, setIsScrolled ] = useState(false)
+  const { addToCart } = useCart()
   const handleScroll = () => {
     (window.scrollY > 50 || window.pageYOffset > 50) ? setIsScrolled(true) : setIsScrolled(false)
   }
@@ -23,7 +25,7 @@ const Header = () => {
 
   return (
     <header>
-      <nav className={isScrolled ? styles['scrolled'] : null}>
+      <nav className={isScrolled || addToCart ? styles['scrolled'] : null}>
           <div className={`${styles['navbar-top']}`}>
             <p>Free Standard Shipping on orders of 100 € or more</p>
           </div>
