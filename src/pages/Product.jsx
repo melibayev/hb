@@ -30,24 +30,36 @@ const Product = () => {
       }, [isOpened]);
 
       const handleAddToCart = () => {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        const cartItem = {
-            id: product.id,
-            desc: product.desc,
-            price: product.price,
-            about: product.about,
-            size: size,
-            img: product.imgs[product.imgs.length - 1], 
-        };
-
-        cart.push(cartItem);
-
-        localStorage.setItem('cart', JSON.stringify(cart));
-
-        setAddToCart(true);
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];        
+        const existingProductIndex = cart.findIndex(
+            (item) => item.id === product.id && item.size === size
+        );
+    
+        if (existingProductIndex !== -1) {
+            if (cart[existingProductIndex].piece >= 2) {
+                alert("You can't add more than 2 of the same product to the cart.");
+            } else {
+                cart[existingProductIndex].piece += 1;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                setAddToCart(true);
+            }
+        } else {
+            const cartItem = {
+                id: product.id,
+                desc: product.desc,
+                price: product.price,
+                about: product.about,
+                size: size,
+                img: product.imgs[product.imgs.length - 1],
+                piece: 1  
+            };
+    
+            cart.push(cartItem);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            setAddToCart(true);
+        }
     };
-
+    
   return (
     <>
     <SizeSelection />
