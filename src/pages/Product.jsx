@@ -20,7 +20,7 @@ const Product = () => {
     const { id } = useParams()
     const product = homeProducts.find((item) => item.id === parseInt(id))
     const { isOpened, setIsOpened } = useSizeWindow(); 
-    const size = localStorage.getItem('selectedSize') || '';
+    const size = localStorage.getItem(`selectedSize-${id}`) || '';
     const { addToCart, setAddToCart } = useCart()
     useEffect(() => {
         isOpened ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
@@ -83,7 +83,7 @@ const Product = () => {
                     <p>Sizes</p>
                     <div>{size} {<MdKeyboardArrowRight />}</div>
                 </div>
-                {!localStorage.getItem('selectedSize') ? 
+                {!localStorage.getItem(`selectedSize-${id}`) ? 
                 <button className={styles['size-btn']} onClick={ () => setIsOpened(true)}>Select your size</button> : 
                 <button className={styles['size-btn']} onClick={ handleAddToCart }>Place in cart</button> 
                 }

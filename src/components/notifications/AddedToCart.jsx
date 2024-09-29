@@ -29,8 +29,8 @@ const AddedToCart = () => {
                     </div>
                 </div>
                 <div className={styles['cart-btns']}>
-                    <button>View my Cart</button>
-                    <button>Continue Shopping</button>
+                    <button className={styles.black}>View my Cart</button>
+                    <button className={styles.white} onClick={() => setAddToCart(false)}>Continue Shopping</button>
                 </div>
             </div>
         </div>

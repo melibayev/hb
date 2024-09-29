@@ -51,8 +51,18 @@
         padding: 13px 32px;
         width: 100%;
         border: 1px solid #000;
-        color: #fff;
         border-radius: 40px;
-        background-color: #000;
+        transition: .5s;
     }
+}
+.black {
+   color: #fff;
+   background-color: #000;
+   &:hover {
+       color: #000;
+       background-color: transparent;
+   }
+}
+.white {
+    background-color: #fff;
 }

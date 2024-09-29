@@ -18,7 +18,7 @@ const SizeSelection = () => {
     const [selectedSize, setSelectedSize] = useState(null);
 
     useEffect(() => {
-        const savedSize = localStorage.getItem(`selectedSize`);
+        const savedSize = localStorage.getItem(`selectedSize-${id}`);
         if (savedSize) {
         setSelectedSize(savedSize);
         }
@@ -26,7 +26,7 @@ const SizeSelection = () => {
 
     const handleSizeSelection = (size) => {
         setSelectedSize(size);
-        localStorage.setItem(`selectedSize`, size);
+        localStorage.setItem(`selectedSize-${id}`, size);
         setIsOpened(false)
     };
   return (
