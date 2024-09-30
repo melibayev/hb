@@ -37,7 +37,12 @@ const Product = () => {
           document.body.style.overflow = 'auto';    
         };
       }, [isOpened]);
-
+    
+    useEffect(() => {
+        let likes = JSON.parse(localStorage.getItem('likes')) || [];
+        const isAlreadyLiked = likes.some((item) => item.id === product.id);
+        setLiked(isAlreadyLiked)
+    },[liked])
       const handleAddToCart = () => {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];        
         const existingProductIndex = cart.findIndex(
