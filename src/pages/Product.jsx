@@ -115,7 +115,7 @@ const Product = () => {
     <section id={styles.product}>
         <div className={styles['product-image']}>
             {product.imgs.map(el => (
-                <img src={el} alt="" />
+                <img src={el} alt="product image" />
             ))}
         </div>
         <div className={styles["product-info"]}>

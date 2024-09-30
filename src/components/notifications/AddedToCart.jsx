@@ -20,7 +20,7 @@ const AddedToCart = () => {
                 </div>
                 <div className={styles['added-to-cart-info']}>
                     <div className={styles['added-to-cart-info-img']}>
-                        <img src={productInfo?.img} alt="" />
+                        <img src={productInfo?.img} alt="product image" />
                     </div>
                     <div className={styles['added-to-cart-info-description']}>
                         <p>{productInfo?.desc}</p>

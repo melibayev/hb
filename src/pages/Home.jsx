@@ -68,7 +68,7 @@ const Home = () => {
           <div className="container">
             <div className={styles.categories}>
               <div className={styles['first-category']}>
-                <img src={LUGGAGE_IMG} alt="" />
+                <img src={LUGGAGE_IMG} alt="category image" />
                 <h1>Timeless Travel bags</h1>
                 <button><p>Shop now </p><FaArrowRightLong /></button>  
               </div>

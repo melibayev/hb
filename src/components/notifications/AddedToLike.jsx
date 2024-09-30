@@ -21,7 +21,7 @@ const AddedToLike = () => {
         <div className="container">
             <div className={styles.like}>
                 <div className={styles['like-img']}>
-                    <img src={product?.img} alt="" />
+                    <img src={product?.img} alt="product image" />
                 </div>
                 <div className={styles['like-info']}>
                     <p>{product?.desc} <span>has been added to your wishlist</span></p>
