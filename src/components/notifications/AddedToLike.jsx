@@ -11,7 +11,8 @@ import styles from '../../sass/common/AddedToLike.module.scss'
 
 const AddedToLike = () => {
     const { addToLike, setAddToLike } = useLike()
-    const product = JSON.parse(localStorage.getItem('likes') || []).slice(-1)[0]
+    const likes = JSON.parse(localStorage.getItem('likes')) || [];
+    const product = likes.length > 0 ? likes[likes.length - 1] : null;
     useEffect(() => {
         window.addEventListener('scroll', () => setAddToLike(false)); 
     }, [])    
