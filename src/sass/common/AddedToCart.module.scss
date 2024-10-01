@@ -13,6 +13,9 @@
         opacity: 1;
         z-index: 10000;
     }
+    &-mobile {
+        display: none;
+    }
     &-title {
         display: flex;
         justify-content: space-between;
@@ -65,4 +68,30 @@
 }
 .white {
     background-color: #fff;
+}
+
+
+@media (max-width: 1000px) {
+    .added-to-cart {
+        display: none;
+        &-active {
+            display: none;
+        }
+        &-mobile {
+            display: block;
+            position: fixed;
+            bottom: -100%;
+            width: 100%;
+            padding: 40px 20px;
+            opacity: 1;
+            z-index: 10000;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            transition: 1s;
+        }
+    }
+    .active-mobile {
+        bottom: 0;
+        background-color: #fff;
+    }
 }

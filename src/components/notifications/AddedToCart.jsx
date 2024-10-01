@@ -34,6 +34,28 @@ const AddedToCart = () => {
                 </div>
             </div>
         </div>
+        <div className={`${styles['added-to-cart-mobile']} ${addToCart ? styles['active-mobile'] : ''}`}>
+            <div className="container">
+                <div className={styles['added-to-cart-title']}>
+                    <div>Added to Cart</div>
+                    <div onClick={() => setAddToCart(false)}>{<FaXmark />}</div>
+                </div>
+                <div className={styles['added-to-cart-info']}>
+                    <div className={styles['added-to-cart-info-img']}>
+                        <img src={productInfo?.img} alt="product image" />
+                    </div>
+                    <div className={styles['added-to-cart-info-description']}>
+                        <p>{productInfo?.desc}</p>
+                        <p>Size: {productInfo?.size}</p>
+                        <p>Price: {productInfo?.price}</p>
+                    </div>
+                </div>
+                <div className={styles['cart-btns']}>
+                    <button className={styles.black}>View my Cart</button>
+                    <button className={styles.white} onClick={() => setAddToCart(false)}>Continue Shopping</button>
+                </div>
+            </div>
+        </div>
     </>
   )
 }
