@@ -35,6 +35,7 @@ export const settings = {
     autoplaySpeed: 3000,
     touchThreshold: 5, 
     pauseOnHover: true,
+    pauseOnFocus: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
