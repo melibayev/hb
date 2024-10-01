@@ -36,3 +36,14 @@
         }
     }
 }
+
+@media (max-width: 767px) {
+    .removed-to-like {
+        top: 160px;
+        width: 80%;
+        padding: 14px 20px;
+    }
+    .like {
+        column-gap: 8px;
+    }
+}

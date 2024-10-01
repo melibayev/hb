@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import Slider from 'react-slick';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { homeProducts } from '../data/products';
 import { useSizeWindow } from '../components/context/SizeWindowContext';
 import { useCart } from '../components/context/CartContext';
 import { useLike } from '../components/context/LikeContext';
 import { useRemoveLike } from '../components/context/RemoveLikeContext';
+import { productSettings } from '../sliderSettings/productSlider';
 
 //imgs and icons
 import { GoHeart, GoHeartFill } from "react-icons/go";
@@ -19,6 +22,7 @@ import SizeSelection from '../components/sizeSelection/SizeSelection';
 import AddedToCart from '../components/notifications/AddedToCart';
 import AddedToLike from '../components/notifications/AddedToLike';
 import RemovedFromLike from '../components/notifications/RemovedFromLike';
+
 
 
 const Product = () => {
@@ -112,11 +116,28 @@ const Product = () => {
     <AddedToLike />
     <RemovedFromLike />
     <div className={`${isOpened || addToCart || addToLike || removeAddToLike ? styles['wrapper'] : ''}`} onClick={ () => setIsOpened(false)}></div>
-    <section id={styles.product}>
+    <section id={styles.product}>  
         <div className={styles['product-image']}>
-            {product.imgs.map(el => (
-                <img src={el} alt="product image" />
-            ))}
+            <PhotoProvider>
+                {product.imgs.map((el, index) => (
+                    <PhotoView key={index} src={el}>
+                        <img src={el} alt="product image" />
+                    </PhotoView>
+                ))}
+            </PhotoProvider>
+        </div>
+        <div className={styles['product-image-mobile']}>
+            <PhotoProvider>
+                <Slider {...productSettings}>
+                    {product.imgs.map(el => (
+                        <div>
+                            <PhotoView src={el}>
+                                <img src={el} alt="product image" />
+                            </PhotoView>
+                        </div>
+                    ))} 
+                </Slider>
+            </PhotoProvider>
         </div>
         <div className={styles["product-info"]}>
             <div className={styles["product-info-container"]}>

@@ -51,6 +51,26 @@ const SizeSelection = () => {
                 </div>
             </div>
         </div>
+        <div className={`${styles['size-mobile']} ${isOpened ? styles['open-mobile'] : ''}`}>
+            <div className='container'>
+                <div className={styles['size-selection-title']}>
+                    <div>Sizes</div>
+                    <div onClick={() => setIsOpened(false)}>{<FaXmark />}</div>
+                </div>
+                <p>Size guide:</p>
+                <div className={styles['size-selection-options']}>
+                {product.size.map((size) => (
+                        <button
+                        key={size}
+                        className={selectedSize === size ? styles['active'] : ''}
+                        onClick={() => handleSizeSelection(size)}
+                        >
+                        {size}
+                        </button>
+                    ))}
+                </div>
+            </div>
+        </div>
     </>
   )
 }

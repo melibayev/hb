@@ -19,6 +19,9 @@
     img {
         width: 100%;
     }
+    &-mobile {
+        display: none;
+    }
 }
 
 .product-info {
@@ -78,5 +81,38 @@
         color: #000;
         background-color: #FFF;
     }
+}
 
+@media (max-width: 1000px) {
+    #product {
+        grid-template-columns: 1fr;
+    }
+    .product-image {
+        display: none;
+        &-mobile {
+            display: none;
+            position: sticky;
+            top: 0; 
+            background-color: white;
+            display: block;
+            div {
+                width: 100vw;
+                height: 100%;
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .product-info {
+        margin-top: auto;
+        background-color: #fff;
+        display: flex;
+        &-container{
+            max-width: fit-content;
+            margin: 0;
+            padding: 24px;
+        }
+    }
+    
 }

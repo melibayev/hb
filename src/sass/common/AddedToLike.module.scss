@@ -42,3 +42,28 @@
         }
     }
 }
+
+@media (max-width: 1000px) {
+    .added-to-like {
+        top: 180px;
+        width: 70%;
+        padding: 14px 20px;
+
+    }
+    .like {
+        position: relative;
+        &-img img {
+            width: 70px;
+        }
+        &-info {
+            &-xmark {
+                position: absolute;
+                top: 0px;
+                right: -4px;
+            }
+            a {
+                font-size: 12px;
+            }
+        }
+    }
+}

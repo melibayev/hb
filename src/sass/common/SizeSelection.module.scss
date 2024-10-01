@@ -1,4 +1,4 @@
-.size {
+.size, .size-mobile {
     position: fixed;
     top: 0;
     right: -100%;
@@ -26,7 +26,8 @@
     &-selection-options {
         display: flex;
         flex-direction: row;
-        column-gap: 12px;
+        flex-wrap: wrap;
+        gap: 12px;
         button {
             padding: 10px 20px;
             border: 1px solid #e8e8e8;
@@ -39,6 +40,30 @@
     }
 }
 
+.size-mobile {
+    display: none;
+}
+
 .open {
     right: 0;
+}
+
+@media (max-width: 1000px) {
+    .size {
+        display: none;
+    }
+    .size-mobile {
+        display: block;
+        top: auto;
+        right: 0;
+        bottom: -100%;
+        width: 100%;
+        height: 40%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        padding: 40px;
+    }
+    .open-mobile {
+        bottom: 0;
+    }
 }
