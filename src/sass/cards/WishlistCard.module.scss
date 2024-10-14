@@ -1,0 +1,10 @@
+.card {
+    max-width: 358px;
+    &-img {
+        width: 100%;
+        height: auto;
+        img {
+            width: 100%;
+        }
+    }
+}

@@ -47,7 +47,7 @@ const Header = () => {
             </div>
             <div className={styles['navbar-items']}>
                 <p><IoIosSearch /></p>
-                <p className={styles['navbar-items-like']}><GoHeart /> <div className={`${styles['added']} ${likeSize <= 0 ? styles['not-active'] : ''}`}>{likeSize}</div></p>
+                <NavLink to={`/wishlist`}><p className={styles['navbar-items-like']}><GoHeart /> <div className={`${styles['added']} ${likeSize <= 0 ? styles['not-active'] : ''}`}>{likeSize}</div></p></NavLink>
                 <p><IoBagHandleOutline /> <div className={`${styles['added']} ${cartSize <= 0 ? styles['not-active'] : ''}`}>{cartSize}</div></p>
             </div>
           </div>

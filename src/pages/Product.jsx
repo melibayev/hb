@@ -95,7 +95,8 @@ const Product = () => {
                 price: product.price,
                 about: product.about,
                 size: size,
-                img: product.imgs[product.imgs.length - 1]  
+                img: product.imgs[product.imgs.length - 1],
+                imgs: product.imgs 
             };
     
             likes.push(likedItem);
