@@ -32,8 +32,8 @@
     align-items: center;
     justify-content: center;
     &-container{
-        max-width: 440px;
-        margin: 300px 100px 50px;
+        min-width: 50%;
+        margin: calc(50%) 50px 50px;
     }
     &-title {
         display: flex;
@@ -80,6 +80,19 @@
     &:hover {
         color: #000;
         background-color: #FFF;
+    }
+}
+
+@media (max-width: 1100px) {
+    #product {
+        column-gap: 10px;
+    }
+    .product-info {
+        &-container{
+            max-width: fit-content;
+            margin: 220px 0px 50px;
+            padding: 24px;
+        }
     }
 }
 
