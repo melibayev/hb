@@ -9,12 +9,19 @@ const Wishlist = () => {
   return (
     <section id={styles.wishlist}>
         <div className="container">
-            { products ? 
-                <div className={styles['wishlist-product']}>
-                    {products.map(pr => (
-                        <WishlistProduct key={pr.id} {...pr} />
-                    ))}
-                </div>
+            { products ?
+                <> 
+                    <div className={styles['wishlist-message']}>
+                        <h4>Create a Wishlist</h4>
+                        <p>Sign in or create a HB account to save your selection.</p>
+                        <button>Sign In</button>
+                    </div>
+                    <div className={styles['wishlist-product']}>
+                        {products.map(pr => (
+                            <WishlistProduct key={pr.id} {...pr} />
+                        ))}
+                    </div>
+                </>
                 :    
             <div className={styles['wishlist-message']}>
                 <h4>Your wishlist is empty</h4>

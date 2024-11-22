@@ -1,10 +1,62 @@
 .card {
-    max-width: 358px;
+    width: 100%;
     &-img {
         width: 100%;
         height: auto;
         img {
             width: 100%;
+            height: 400px;
+            object-fit: cover;
+            object-position: 0 0;
+        }
+    }
+    &-desc {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        padding: 0 8px;
+        &-info {
+            min-height: 52px;
+            margin-top: 8px;
+            p {
+                font-size: 12px;
+            }
+            span {
+                font-size: 12px;
+            }
+        }
+        &-buy {
+            button {
+                div {
+                    margin-left: 50px;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    overflow: hidden;
+                    column-gap: 4px;
+                    padding: 8px;
+                    border: 1px solid black;
+                    border-radius: 30px;
+                    transition: .3s cubic-bezier(.39,.575,.565,1);
+                }  
+                p {
+                    position: absolute;
+                    right: -30px;
+                    transition: .3s cubic-bezier(.39,.575,.565,1);
+                }
+                &:hover {
+                    div {
+                        border-radius: 30px;
+                        display: flex;  
+                        column-gap: 4px;
+                        align-items: center;
+                        padding-right: 40px;
+                        p {
+                            right: 8px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
