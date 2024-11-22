@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useLike } from '../context/LikeContext';
 import { useRemoveLike } from '../context/RemoveLikeContext';
@@ -23,6 +23,13 @@ const Header = () => {
   const { removeAddToLike } = useRemoveLike()
   const cartSize = JSON.parse(localStorage.getItem('cart'))?.length || 0
   const likeSize = JSON.parse(localStorage.getItem('likes'))?.length || 0
+  const location = useLocation();
+  const [isBlackBg, setIsBlackBg] = useState(false);
+  const blackBgPaths = ['/wishlist'];
+  useEffect(() => {
+    setIsBlackBg(blackBgPaths.includes(location.pathname));
+  }, [location.pathname]);
+  
   const handleScroll = () => {
     (window.scrollY > 50 || window.pageYOffset > 50) ? setIsScrolled(true) : setIsScrolled(false)
   }
@@ -32,7 +39,10 @@ const Header = () => {
 
   return (
     <header>
-      <nav className={isScrolled || addToCart || addToLike || removeAddToLike ? styles['scrolled'] : null}>
+      <nav
+       className={`${isBlackBg ? styles['nav--black'] : ''} ${
+        isScrolled || addToCart || addToLike || removeAddToLike ? styles['scrolled'] : ''}`}>
+
           <div className={`${styles['navbar-top']}`}>
             <p>Free Standard Shipping on orders of 100 € or more</p>
           </div>
