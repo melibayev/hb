@@ -10,19 +10,21 @@ import { SizeWindowProvider } from './components/context/SizeWindowContext';
 import { CartProvider } from './components/context/CartContext';
 import { LikeProvider } from './components/context/LikeContext';
 import { RemoveLikeProvider } from './components/context/RemoveLikeContext';
-
+import { DataProvider } from './components/context/DataContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CartProvider>
-      <RemoveLikeProvider>
-        <LikeProvider>
-          <SizeWindowProvider>
-            <App />
-          </SizeWindowProvider>
-        </LikeProvider>
-      </RemoveLikeProvider>
-    </CartProvider>
+    <DataProvider>
+      <CartProvider>
+        <RemoveLikeProvider>
+          <LikeProvider>
+            <SizeWindowProvider>
+              <App />
+            </SizeWindowProvider>
+          </LikeProvider>
+        </RemoveLikeProvider>
+      </CartProvider>
+    </DataProvider>
   </React.StrictMode>
 );
 

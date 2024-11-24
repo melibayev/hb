@@ -40,8 +40,7 @@ const Header = () => {
   return (
     <header>
       <nav
-       className={`${isBlackBg ? styles['nav--black'] : ''} ${
-        isScrolled || addToCart || addToLike || removeAddToLike ? styles['scrolled'] : ''}`}>
+       className={`${isScrolled || addToCart || addToLike || removeAddToLike || isBlackBg ? styles['scrolled'] : ''}`}>
 
           <div className={`${styles['navbar-top']}`}>
             <p>Free Standard Shipping on orders of 100 € or more</p>

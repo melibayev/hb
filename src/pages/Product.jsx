@@ -22,18 +22,20 @@ import SizeSelection from '../components/sizeSelection/SizeSelection';
 import AddedToCart from '../components/notifications/AddedToCart';
 import AddedToLike from '../components/notifications/AddedToLike';
 import RemovedFromLike from '../components/notifications/RemovedFromLike';
+import { useData } from '../components/context/DataContext';
 
 
 
 const Product = () => {
     const { id } = useParams()
-    const product = homeProducts.find((item) => item.id === parseInt(id))
     const { isOpened, setIsOpened } = useSizeWindow(); 
     const size = localStorage.getItem(`selectedSize-${id}`) || '';
     const { addToCart, setAddToCart } = useCart()
     const { addToLike, setAddToLike } = useLike()
     const { removeAddToLike, setRemoveAddToLike } = useRemoveLike()
     const [ liked, setLiked ] = useState(false)
+    const { products } = useData()
+    const product = products.find((item) => item.id === parseInt(id))
 
     useEffect(() => {
         isOpened ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
