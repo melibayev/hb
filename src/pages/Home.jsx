@@ -53,7 +53,7 @@ const Home = () => {
   return (
       <>
         <section id={styles['home-banner']}>
-          <video muted autoPlay loop>
+          <video muted autoPlay loop playsInline>
             <source src={randomVideo} type='video/mp4'/>
           </video>
           <div className="container">
