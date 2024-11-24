@@ -91,7 +91,7 @@ const Home = () => {
                   <button><p>Shop now </p><FaArrowRightLong /></button>  
                 </div>
                 <div className={styles['second-category']}>
-                  <video muted autoPlay loop>
+                  <video muted autoPlay loop playsInline>
                     <source src={HOODIE_VIDEO} type='video/mp4'/>
                   </video>
                   <h1>One hoodie, many shades</h1>
