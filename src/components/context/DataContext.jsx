@@ -11,7 +11,6 @@ export const DataProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const api = process.env.REACT_APP_API_URL
-    console.log(api);
     
 
     useEffect(() => {
