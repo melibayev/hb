@@ -10,10 +10,12 @@ export const DataProvider = ({ children }) => {
     const [videos, setVideos] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const api = process.env.REACT_APP_API_URL
+    console.log(api);
     
 
     useEffect(() => {
-      axios.get("https://raw.githubusercontent.com/melibayev/data/main/db.json")
+      axios.get(api)
       .then((response) => {
         
         setProducts(response.data.products); 
