@@ -51,7 +51,7 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         column-gap: 0px;
-        row-gap: 140px;
+        row-gap: 160px;
         padding: 0 20px;
         & > div {
             min-width: 250px;
@@ -83,6 +83,7 @@
             padding: 0;
             height: 100%;
             grid-template-columns: 1fr;
+            row-gap: 150px;
         }
     }
 }

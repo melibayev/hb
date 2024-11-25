@@ -11,22 +11,30 @@
         }
     }
     &-desc {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
         padding: 0 8px;
         &-info {
-            min-height: 52px;
             margin-top: 8px;
+            min-height: 46px;
+            display: -webkit-box;
+            max-width: 400px;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow-y: hidden;
+            text-overflow: ellipsis;
             p {
-                font-size: 12px;
-            }
-            span {
-                font-size: 12px;
+                font-size: 14px;
             }
         }
         &-buy {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            span {
+                font-size: 14px;
+            }
             button {
+                background-color: transparent;
+                color: none;
                 div {
                     margin-left: 50px;
                     position: relative;
@@ -35,14 +43,20 @@
                     overflow: hidden;
                     column-gap: 4px;
                     padding: 8px;
-                    border: 1px solid black;
+                    color: #000;
+                    border: 1px solid #000;
                     border-radius: 30px;
                     transition: .3s cubic-bezier(.39,.575,.565,1);
+                    background-color: transparent;
                 }  
+                svg {
+                    fill: #000;
+                }
                 p {
                     position: absolute;
                     right: -30px;
                     transition: .3s cubic-bezier(.39,.575,.565,1);
+                    color: #000;
                 }
                 &:hover {
                     div {
@@ -56,6 +70,43 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 815px) {
+    .card {
+        &-desc {
+            &-info {
+                min-height: auto;
+            }
+        }
+    }
+}
+@media (max-width: 800px) {
+    .card {
+        &-desc {
+            &-info {
+                min-height: 46px;
+            }
+        }
+    }
+}
+@media (max-width: 517px) {
+    .card {
+        &-desc {
+            &-info {
+                min-height: auto;
+            }
+        }
+    }
+}
+@media (max-width: 500px) {
+    .card {
+        &-desc {
+            &-info {
+                min-height: 30px;
             }
         }
     }

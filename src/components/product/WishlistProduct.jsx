@@ -25,9 +25,9 @@ const WishlistProduct = ({ id, desc, imgs, price }) => {
             <div className={styles['card-desc']}>
                 <div className={styles['card-desc-info']}>
                     <p>{desc}</p>
-                    <span>{price}</span>
                 </div>
                 <div className={styles['card-desc-buy']}>
+                    <span>{price}</span>
                     <button>
                         <div>
                             <FaBagShopping />
