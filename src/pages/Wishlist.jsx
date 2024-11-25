@@ -9,7 +9,7 @@ const Wishlist = () => {
   return (
     <section id={styles.wishlist}>
         <div className="container">
-            { products ?
+            { products.length >= 1 ?
                 <> 
                     <div className={styles['wishlist-message']}>
                         <h4>Create a Wishlist</h4>
