@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 
 import { TbTruckDelivery } from "react-icons/tb";
 import styles from '../../sass/cards/CartCard.module.scss'
@@ -16,7 +17,7 @@ const CartProduct = ({id, desc, img, piece, price, size}) => {
     <>
         <div className={styles.card}>
             <div className={styles['card-img']}>
-                <img src={img} alt="img" />
+                <NavLink to={`/product/${id}`}><img src={img} alt="img" /></NavLink>
             </div>
             <div className={styles['card-info']}>
                 <h4>{desc}</h4>
