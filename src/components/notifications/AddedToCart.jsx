@@ -1,5 +1,7 @@
 import React from 'react'
 import { useCart } from '../context/CartContext'
+import { NavLink } from 'react-router-dom'
+
 
 // images and icons
 import { FaXmark } from 'react-icons/fa6'
@@ -29,7 +31,7 @@ const AddedToCart = () => {
                     </div>
                 </div>
                 <div className={styles['cart-btns']}>
-                    <button className={styles.black}>View my Cart</button>
+                    <NavLink to={`/cart`}><button className={styles.black}>View my Cart</button></NavLink>
                     <button className={styles.white} onClick={() => setAddToCart(false)}>Continue Shopping</button>
                 </div>
             </div>

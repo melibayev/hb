@@ -25,7 +25,7 @@ const Header = () => {
   const likeSize = JSON.parse(localStorage.getItem('likes'))?.length || 0
   const location = useLocation();
   const [isBlackBg, setIsBlackBg] = useState(false);
-  const blackBgPaths = ['/wishlist'];
+  const blackBgPaths = ['/wishlist', '/cart'];
   useEffect(() => {
     setIsBlackBg(blackBgPaths.includes(location.pathname));
   }, [location.pathname]);
@@ -57,7 +57,7 @@ const Header = () => {
             <div className={styles['navbar-items']}>
                 <p><IoIosSearch /></p>
                 <NavLink to={`/wishlist`}><p className={styles['navbar-items-like']}><GoHeart /> <div className={`${styles['added']} ${likeSize <= 0 ? styles['not-active'] : ''}`}>{likeSize}</div></p></NavLink>
-                <p><IoBagHandleOutline /> <div className={`${styles['added']} ${cartSize <= 0 ? styles['not-active'] : ''}`}>{cartSize}</div></p>
+                <NavLink to={`/cart`}><p><IoBagHandleOutline /> <div className={`${styles['added']} ${cartSize <= 0 ? styles['not-active'] : ''}`}>{cartSize}</div></p></NavLink>
             </div>
           </div>
           <div className={styles['navbar-links']}>
