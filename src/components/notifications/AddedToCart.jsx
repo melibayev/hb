@@ -31,7 +31,7 @@ const AddedToCart = () => {
                     </div>
                 </div>
                 <div className={styles['cart-btns']}>
-                    <NavLink to={`/cart`}><button className={styles.black}>View my Cart</button></NavLink>
+                    <NavLink to={`/cart`}><button className={styles.black} onClick={() => setAddToCart(false)}>View my Cart</button></NavLink>
                     <button className={styles.white} onClick={() => setAddToCart(false)}>Continue Shopping</button>
                 </div>
             </div>
@@ -53,7 +53,7 @@ const AddedToCart = () => {
                     </div>
                 </div>
                 <div className={styles['cart-btns']}>
-                    <NavLink to={'/cart'}><button className={styles.black}>View my Cart</button></NavLink>
+                    <NavLink to={'/cart'}><button className={styles.black} onClick={() => setAddToCart(false)}>View my Cart</button></NavLink>
                     <button className={styles.white} onClick={() => setAddToCart(false)}>Continue Shopping</button>
                 </div>
             </div>

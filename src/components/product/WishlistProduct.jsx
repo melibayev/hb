@@ -28,12 +28,14 @@ const WishlistProduct = ({ id, desc, imgs, price }) => {
                 </div>
                 <div className={styles['card-desc-buy']}>
                     <span>{price}</span>
-                    <button>
-                        <div>
-                            <FaBagShopping />
-                            <p>shop</p>
-                        </div>
-                    </button>
+                    <NavLink to={`/product/${id}`}>
+                        <button>
+                            <div>
+                                <FaBagShopping />
+                                <p>shop</p>
+                            </div>
+                        </button>
+                    </NavLink>
                 </div>
             </div>
         </div>
