@@ -12,9 +12,11 @@ import { LikeProvider } from './components/context/LikeContext';
 import { RemoveLikeProvider } from './components/context/RemoveLikeContext';
 import { DataProvider } from './components/context/DataContext';
 import { CalculateCartProvider } from './components/context/CalculateCartContext';
+import { GlobalProvider } from './components/context/GlobalContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <GlobalProvider>
     <DataProvider>
       <CalculateCartProvider>
         <CartProvider>
@@ -28,6 +30,7 @@ root.render(
         </CartProvider>
       </CalculateCartProvider>
     </DataProvider>
+    </GlobalProvider>
   </React.StrictMode>
 );
 
