@@ -62,7 +62,7 @@ const EditImage = () => {
         {currentImages.map((image) => (
           <div key={image.name} style={{ marginBottom: '10px' }}>
             <div>
-              <img src={IMAGE_URL + image.name} alt="" />
+              <img src={`${IMAGE_URL + image.name}`} alt="" />
             </div>
             <div>{image.name}</div>
             <div className={styles['end-item']}>
