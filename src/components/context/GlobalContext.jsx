@@ -4,12 +4,10 @@ import axios from "axios";
 const GlobalContext = createContext();
 
 const API_URL = process.env.REACT_APP_API_URL || "https://raw.githubusercontent.com/melibayev/data/main/db.json";
-const GITHUB_CONFIG = {
-  username: "melibayev",
-  repo: "data",
-  branch: "main",
-  token: "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",
-};
+  const GITHUB_USERNAME = process.env.REACT_APP_GITHUB_USERNAME;
+  const REPO_NAME = process.env.REACT_APP_REPO_NAME;
+  const BRANCH = process.env.REACT_APP_BRANCH;
+  const ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
 
 export const GlobalProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
@@ -26,11 +24,13 @@ export const GlobalProvider = ({ children }) => {
         setVideos(data.videos || []);
 
         const imagesResponse = await axios.get(
-          `https://api.github.com/repos/${GITHUB_CONFIG.username}/${GITHUB_CONFIG.repo}/contents/home_images`,
+          `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/home_images`,
           {
-            headers: { Authorization: `token ${GITHUB_CONFIG.token}` },
+            headers: { Authorization: `token ${ACCESS_TOKEN}` },
           }
         );
+        console.log(imagesResponse);
+        
         setUploadedImages(imagesResponse.data || []);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -43,9 +43,9 @@ export const GlobalProvider = ({ children }) => {
   const saveData = async (updatedData) => {
     try {
       const fileResponse = await axios.get(
-        `https://api.github.com/repos/${GITHUB_CONFIG.username}/${GITHUB_CONFIG.repo}/contents/db.json`,
+        `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/db.json`,
         {
-          headers: { Authorization: `token ${GITHUB_CONFIG.token}` },
+          headers: { Authorization: `token ${ACCESS_TOKEN}` },
         }
       );
       const sha = fileResponse.data.sha;
@@ -53,15 +53,15 @@ export const GlobalProvider = ({ children }) => {
       const mergedData = { ...currentData, ...updatedData };
 
       await axios.put(
-        `https://api.github.com/repos/${GITHUB_CONFIG.username}/${GITHUB_CONFIG.repo}/contents/db.json`,
+        `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/db.json`,
         {
           message: "Update db.json",
           content: btoa(JSON.stringify(mergedData, null, 2)),
           sha,
-          branch: GITHUB_CONFIG.branch,
+          branch: BRANCH,
         },
         {
-          headers: { Authorization: `token ${GITHUB_CONFIG.token}` },
+          headers: { Authorization: `token ${ACCESS_TOKEN}` },
         }
       );
       alert("Data successfully updated!");
