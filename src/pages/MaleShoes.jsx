@@ -10,63 +10,69 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 const MaleShoes = () => {
   const { products } = useData()
-  const shoes = products.filter(product => product.category.includes('shoes'));
+  const shoes = products?.filter(product => product.category.includes('shoes')) || [];
+  const bannerShoes = shoes?.slice(0, 2)
   const [shoesTypeSelected, setShoesTypeSelected] = useState('6');
   const [shoesTypeTitle, setShoesTypeTitle] = useState('All Shoes') 
   const [sortBySelected, setSortBySelected] = useState('1');
-  const [filteredShoes, setFilteredShoes] = useState(shoes)
-  const [sortedShoes, setSortedShoes] = useState(shoes)
+  const [filteredShoes, setFilteredShoes] = useState(shoes || [])
+  const [sortedShoes, setSortedShoes] = useState(shoes || [])
   const setShoesType = ({ key }) => {
     setShoesTypeSelected(key) 
     const selectedShoesType = shoesType.find(item => item.key === key);
     if (selectedShoesType) {
-      setShoesTypeTitle(selectedShoesType.label); // Update the label for the selected item
+      setShoesTypeTitle(selectedShoesType.label); 
     }   
   };
   const setShoesSort = ({ key }) => {
     setSortBySelected(key)
-};
-  useEffect(() => {
-    if (shoesTypeSelected == '2') {
-        const shoes = products.filter(product => product.category.includes('sneakers'));
-        setFilteredShoes(shoes)
-    } else if (shoesTypeSelected == '3') {
-        const shoes = products.filter(product => product.category.includes('loafers-moccasins'));
-        setFilteredShoes(shoes)
-    } else if (shoesTypeSelected == '4') {
-        const shoes = products.filter(product => product.category.includes('boots'));
-        setFilteredShoes(shoes)
-    } else if (shoesTypeSelected == '5') {
-        const shoes = products.filter(product => product.category.includes('sandals'));
-        setFilteredShoes(shoes)
-    } else if (shoesTypeSelected == '6') {
-        const shoes = products.filter(product => product.category.includes('shoes'));
-        setFilteredShoes(shoes)
-    } else if (shoesTypeSelected == '7') {
-        const shoes = products.filter(product => product.category.includes('business-shoes'));
-        setFilteredShoes(shoes)
-    }
-  }, [shoesTypeSelected])
-
-  useEffect(() => {
-    let sortedShoes = [...filteredShoes];
-    const cleanPrice = (price) => {
-      return parseFloat(price.replace(/[$,]/g, ''));
     };
-    if (sortBySelected === '2') {
-      sortedShoes = sortedShoes.sort((a, b) => cleanPrice(a.price) - cleanPrice(b.price));
-    } else if (sortBySelected === '3') {
-      sortedShoes = sortedShoes.sort((a, b) => cleanPrice(b.price) - cleanPrice(a.price));
+
+
+
+useEffect(() => {
+    if (!products) return;
+
+    let filtered = [];
+    switch (shoesTypeSelected) {
+      case '2':
+        filtered = products.filter(product => product.category.includes('sneakers'));
+        break;
+      case '3':
+        filtered = products.filter(product => product.category.includes('loafers-moccasins'));
+        break;
+      case '4':
+        filtered = products.filter(product => product.category.includes('boots'));
+        break;
+      case '5':
+        filtered = products.filter(product => product.category.includes('sandals'));
+        break;
+      case '7':
+        filtered = products.filter(product => product.category.includes('business-shoes'));
+        break;
+      default: 
+        filtered = products.filter(product => product.category.includes('shoes'));
+        break;
     }
-    setSortedShoes(sortedShoes);
-  }, [sortBySelected, filteredShoes]);
-  
-  
+    setFilteredShoes(filtered || []);
+  }, [shoesTypeSelected, products]);
 
-
+  useEffect(() => {
+    if (products) {
+        let sortedShoes = [...filteredShoes] || []
+        const cleanPrice = (price) => {
+        return parseFloat(price.replace(/[$,]/g, ''));
+        };
+        if (sortBySelected === '2') {
+        sortedShoes = sortedShoes.sort((a, b) => cleanPrice(a.price) - cleanPrice(b.price));
+        } else if (sortBySelected === '3') {
+        sortedShoes = sortedShoes.sort((a, b) => cleanPrice(b.price) - cleanPrice(a.price));
+        }
+        setSortedShoes(sortedShoes);
+    }
+  }, [sortBySelected, filteredShoes, products]);
   
   
-  const bannerShoes = shoes.slice(0, 2)
   const shoesType = [
     { key: '1', label: 'Shoes', disabled: true },
     { key: '2', label: 'Sneakers' },
@@ -82,6 +88,11 @@ const MaleShoes = () => {
     { key: '2', label: 'Price Low to High' },
     { key: '3', label: 'Price High to Low' },
   ];
+
+  if (!products) {
+    return <div>Loagins..</div>
+  }
+
   return (
     <>
         <section id={styles.shoes}>

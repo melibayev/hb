@@ -34,9 +34,8 @@ const Product = () => {
     const { removeAddToLike, setRemoveAddToLike } = useRemoveLike()
     const [ liked, setLiked ] = useState(false)
     const { products } = useData()
-    const product = products.find((item) => item.id.toString() === id.toString());
+    const product = products?.find((item) => item.id.toString() === id.toString()) || [];
 
-    console.log(`product: ${id}`);
     
 
     useEffect(() => {
@@ -131,6 +130,9 @@ const Product = () => {
         localStorage.setItem('likes', JSON.stringify(likes));
     };
     
+    if (!products) {
+        return <div>loading...</div>
+    }
     
   return (
     <>
