@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Slider from 'react-slick';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
-import { homeProducts } from '../data/products';
 import { useSizeWindow } from '../components/context/SizeWindowContext';
 import { useCart } from '../components/context/CartContext';
 import { useLike } from '../components/context/LikeContext';
@@ -35,7 +34,10 @@ const Product = () => {
     const { removeAddToLike, setRemoveAddToLike } = useRemoveLike()
     const [ liked, setLiked ] = useState(false)
     const { products } = useData()
-    const product = products.find((item) => item.id === parseInt(id))
+    const product = products.find((item) => item.id.toString() === id.toString());
+
+    console.log(`product: ${id}`);
+    
 
     useEffect(() => {
         isOpened ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'auto'
@@ -64,19 +66,38 @@ const Product = () => {
                 setAddToCart(true);
             }
         } else {
-            const cartItem = {
-                id: product.id,
-                desc: product.desc,
-                price: product.price,
-                about: product.about,
-                size: size,
-                img: product.imgs[product.imgs.length - 1],
-                piece: 1  
-            };
+            if (product.category !== 'shoes'){
+                const cartItem = {
+                    id: product.id,
+                    desc: product.desc,
+                    price: product.price,
+                    about: product.about,
+                    size: size,
+                    gender: product.gender,
+                    category: product.category,
+                    img: product.imgs[product.imgs.length - 1],
+                    piece: 1  
+                };
+                cart.push(cartItem);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                setAddToCart(true);
+            } else {
+                const cartItem = {
+                    id: product.id,
+                    desc: product.desc,
+                    price: product.price,
+                    about: product.about,
+                    size: size,
+                    gender: product.gender,
+                    category: product.category,
+                    img: product.imgs[0],
+                    piece: 1  
+                };
+                cart.push(cartItem);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                setAddToCart(true);
+            }
     
-            cart.push(cartItem);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            setAddToCart(true);
         }
     };
     
@@ -111,7 +132,6 @@ const Product = () => {
     };
     
     
-
   return (
     <>
     <SizeSelection />

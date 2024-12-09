@@ -14,6 +14,8 @@ const AddProduct = () => {
     price: "",
     size: [],
     about: "",
+    category: "",
+    gender: "",
   });
 
   const handleChange = (e) => {
@@ -25,7 +27,7 @@ const AddProduct = () => {
   };
 
   const handleSubmit = () => {
-    if (!newProduct.id || !newProduct.desc || !newProduct.price) {
+    if (!newProduct.id || !newProduct.desc || !newProduct.price, !newProduct.category, !newProduct.img, !newProduct.imgs, !newProduct.category, !newProduct.gender) {
       alert("Please fill out the required fields.");
       return;
     }
@@ -41,6 +43,8 @@ const AddProduct = () => {
       price: "",
       size: [],
       about: "",
+      category: "",
+      gender: "",
     });
   };
 
@@ -49,7 +53,7 @@ const AddProduct = () => {
       <h2>Add Product</h2>
       <div className={styles['grid-inputs']}>
         <Input
-          type="number"
+          type="text"
           name="id"
           placeholder="ID"
           value={newProduct.id}
@@ -97,6 +101,22 @@ const AddProduct = () => {
           name="size"
           placeholder="Sizes (comma separated)"
           value={newProduct.size}
+          onChange={handleChange}
+          allowClear
+        />
+        <Input
+          type="text"
+          name="category"
+          placeholder="Category:"
+          value={newProduct.category}
+          onChange={handleChange}
+          allowClear
+        />
+        <Input
+          type="text"
+          name="gender"
+          placeholder="Gender (male, female): "
+          value={newProduct.gender}
           onChange={handleChange}
           allowClear
         />

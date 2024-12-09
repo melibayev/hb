@@ -13,6 +13,7 @@ import AddVideo from './components/Admin/Videos/AddVideo';
 import EditProduct from './components/Admin/Products/EditProduct';
 import EditImage from './components/Admin/Images/EditImage';
 import EditVideo from './components/Admin/Videos/EditVideo';
+import MaleShoes from './pages/MaleShoes';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/product/:id' element={<Product />} />
           <Route path='/wishlist' element={<Wishlist />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/male/shoes' element={<MaleShoes />} />
         </Route>
       </Routes>
 

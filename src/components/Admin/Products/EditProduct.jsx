@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import GlobalContext from '../../context/GlobalContext';
 import styles from '../../../sass/pages/Admin.module.scss';
 import { CButton, CModal, CModalHeader, CModalTitle, CModalBody, CModalFooter } from '@coreui/react';
-import { Pagination } from "antd";
+import { Input, Pagination } from "antd";
+import TextArea from "antd/es/input/TextArea";
 
 const EditProduct = () => {
   const { products, setProducts, saveData } = useContext(GlobalContext);
@@ -14,6 +15,8 @@ const EditProduct = () => {
     price: "",
     size: [],
     about: "",
+    category: "",
+    gender: "",
   });
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [visible, setVisible] = useState(false);
@@ -37,7 +40,7 @@ const EditProduct = () => {
   };
 
   const handleProductSubmit = () => {
-    if (!editedProduct.id || !editedProduct.desc || !editedProduct.price) {
+    if (!editedProduct.id || !editedProduct.desc || !editedProduct.price, !editedProduct.category, !editedProduct.img, !editedProduct.imgs, !editedProduct.category, !editedProduct.gender) {
       alert("Please fill out the ID, description, and price fields.");
       return;
     }
@@ -93,6 +96,8 @@ const EditProduct = () => {
             <div>Size: {product.size.map((size, index) => (
               <span key={index}>'{size}' </span>
             ))}</div>
+            <div>category: {product.category}</div>
+            <div>Gender type: {product.gender}</div>
             <div>DESCRIPTION: {product.about}</div>
             <CButton color="primary" onClick={() => setSelectedProductId(product.id)}>Edit</CButton>
             <CButton
@@ -124,55 +129,73 @@ const EditProduct = () => {
         <CModalHeader>
           <CModalTitle id="EditProductModalLabel">Edit Product Details</CModalTitle>
         </CModalHeader>
-        <CModalBody>
-          <input
-            type="number"
+        <CModalBody className={styles['block-inputs']}>
+          <Input
+            type="text"
             name="id"
             placeholder="ID"
             value={editedProduct.id}
             onChange={handleProductChange}
           />
-          <input
+          <Input
             type="text"
             name="desc"
             placeholder="Description"
             value={editedProduct.desc}
             onChange={handleProductChange}
           />
-          <input
+          <Input
             type="text"
             name="img"
             placeholder="Main Image URL"
             value={editedProduct.img}
             onChange={handleProductChange}
           />
-          <input
+          <Input
             type="text"
             name="imgs"
             placeholder="Other Image URLs (comma separated)"
             value={editedProduct.imgs.join(",")}
             onChange={handleProductChange}
           />
-          <input
+          <Input
             type="text"
             name="price"
             placeholder="Price"
             value={editedProduct.price}
             onChange={handleProductChange}
           />
-          <input
+          <Input
             type="text"
             name="size"
             placeholder="Sizes (comma separated)"
             value={editedProduct.size.join(",")}
             onChange={handleProductChange}
           />
-          <textarea
+          <Input
+            type="text"
+            name="category"
+            placeholder="Category"
+            value={editedProduct.category}
+            onChange={handleProductChange}
+          />
+          <Input
+            type="text"
+            name="gender"
+            placeholder="Gender Type"
+            value={editedProduct.gender}
+            onChange={handleProductChange}
+          />
+          <TextArea
             name="about"
             placeholder="About the Product"
             value={editedProduct.about}
             onChange={handleProductChange}
-          ></textarea>
+            autoSize={{
+              minRows: 1,
+              maxRows: 8,
+            }}
+          />
         </CModalBody>
         <CModalFooter>
           <CButton color="secondary" onClick={handleCloseModal}>

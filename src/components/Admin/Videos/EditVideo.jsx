@@ -53,6 +53,16 @@ const EditVideo = () => {
     setCurrentPage(page);
   };
 
+  const copyLinkToClipboard = (imageUrl) => {
+    navigator.clipboard.writeText(imageUrl)
+      .then(() => {
+        alert(`Copied: ${imageUrl}`);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentVideos = videos.slice(startIndex, endIndex);
@@ -68,6 +78,7 @@ const EditVideo = () => {
               <source src={video.video} type="video/mp4" />
             </video>
             <p>URL: {video.video}</p>
+            <CButton color="primary" onClick={() => copyLinkToClipboard(video.video)} style={{ marginRight: '10px', }}>Copy</CButton>
             <CButton color="primary" onClick={() => enableEditVideo(video)}>
               Edit
             </CButton>

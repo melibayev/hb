@@ -29,7 +29,6 @@ export const GlobalProvider = ({ children }) => {
             headers: { Authorization: `token ${ACCESS_TOKEN}` },
           }
         );
-        console.log(imagesResponse);
         
         setUploadedImages(imagesResponse.data || []);
       } catch (error) {

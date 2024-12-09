@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import { settings } from '../sliderSettings/homeSlider.js';
-import { banner } from '../data/index.js'
-import { homeProducts } from '../data/products.js';
 
 // icons and imgs
 import { FaArrowRightLong } from "react-icons/fa6";

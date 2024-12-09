@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useSizeWindow } from '../context/SizeWindowContext';
-import { homeProducts } from '../../data/products';
+import { useData } from '../context/DataContext';
 
 // images and icons
 import { FaXmark } from "react-icons/fa6";
@@ -13,7 +13,8 @@ import styles from '../../sass/common/SizeSelection.module.scss'
 
 const SizeSelection = () => {
     const { id } = useParams()
-    const product = homeProducts.find((item) => item.id === parseInt(id))
+    const { products } = useData()
+    const product = products.find((item) => item.id.toString() === id.toString());
     const { isOpened, setIsOpened } = useSizeWindow(); 
     const [selectedSize, setSelectedSize] = useState(null);
 

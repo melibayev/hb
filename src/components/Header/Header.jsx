@@ -25,7 +25,7 @@ const Header = () => {
   const likeSize = JSON.parse(localStorage.getItem('likes'))?.length || 0
   const location = useLocation();
   const [isBlackBg, setIsBlackBg] = useState(false);
-  const blackBgPaths = ['/wishlist', '/cart'];
+  const blackBgPaths = ['/wishlist', '/cart', '/male/shoes'];
   useEffect(() => {
     setIsBlackBg(blackBgPaths.includes(location.pathname));
   }, [location.pathname]);
@@ -63,7 +63,7 @@ const Header = () => {
           <div className={styles['navbar-links']}>
             <NavLink to={'/'}>new in</NavLink>
             <NavLink to={'/'}>clothing</NavLink>
-            <NavLink to={'/'}>shoes</NavLink>
+            <NavLink to={'/male/shoes'}>shoes</NavLink>
             <NavLink to={'/'}>accesories</NavLink>
             <NavLink to={'/'}>sports</NavLink>
             <NavLink to={'/'}>the suit</NavLink>

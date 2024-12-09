@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import GlobalContext from '../../context/GlobalContext';
 import styles from '../../../sass/pages/Admin.module.scss';
 import { CButton } from '@coreui/react';
@@ -12,9 +12,20 @@ const EditImage = () => {
   const BRANCH = process.env.REACT_APP_BRANCH;
   const ACCESS_TOKEN = process.env.REACT_APP_ACCESS_TOKEN;
   const IMAGE_URL = process.env.REACT_APP_IMAGE_URL;
+  const imgRef = useRef(null);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
+
+  const copyLinkToClipboard = (imageUrl) => {
+    navigator.clipboard.writeText(imageUrl)
+      .then(() => {
+        alert(`Copied: ${imageUrl}`);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
 
   const deleteImageFromGitHub = async (fileName) => {
     if (!window.confirm(`Are you sure you want to delete the image: ${fileName}?`)) {
@@ -62,10 +73,13 @@ const EditImage = () => {
         {currentImages.map((image) => (
           <div key={image.name} style={{ marginBottom: '10px' }}>
             <div>
-              <img src={`${IMAGE_URL + image.name}`} alt="" />
+              <img
+                src={`${IMAGE_URL + image.name}`}
+                alt="" />
             </div>
             <div>{image.name}</div>
-            <div className={styles['end-item']}>
+            <div className={styles['end-flex-buttons']}>
+            <CButton color="primary" onClick={() => copyLinkToClipboard(`${IMAGE_URL + image.name}`)}>Copy</CButton>
               <CButton
                 color="danger"
                 onClick={() => deleteImageFromGitHub(image.name)}
