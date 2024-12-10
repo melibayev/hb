@@ -30,7 +30,7 @@ const AddVideo = () => {
       <div className={styles['flex-inputs']}>
         <Input
         name="id"
-        type="number"
+        type="text"
         placeholder="ID of VIDEO"
         value={newVideo.id}
         allowClear

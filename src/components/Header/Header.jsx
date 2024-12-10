@@ -67,8 +67,8 @@ const Header = () => {
             <NavLink to={'/'}>accesories</NavLink>
             <NavLink to={'/'}>sports</NavLink>
             <NavLink to={'/'}>the suit</NavLink>
+            <NavLink to={'/male/jackets-coats'}>Jackets & Coats</NavLink>
             <NavLink to={'/'}>our brands</NavLink>
-            <NavLink to={'/'}>highlights</NavLink>
           </div>
         </div>
       </nav>

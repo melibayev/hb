@@ -26,7 +26,7 @@ const EditVideo = () => {
   const saveEditedVideo = () => {
     if (newVideo.id && newVideo.video) {
       const updatedVideos = videos.map((video) =>
-        video.id === newVideo.id ? { ...video, ...newVideo } : video
+        video.id == newVideo.id ? { ...video, ...newVideo } : video
       );
       setVideos(updatedVideos);
       saveData({ videos: updatedVideos });
@@ -40,7 +40,7 @@ const EditVideo = () => {
   const deleteVideo = (id) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this video?");
     if (confirmDelete) {
-      const updatedVideos = videos.filter((video) => video.id !== id);
+      const updatedVideos = videos.filter((video) => video.id != id);
       setVideos(updatedVideos);
       saveData({ videos: updatedVideos });
       alert("Video successfully deleted!");
@@ -114,7 +114,7 @@ const EditVideo = () => {
         <CModalBody>
           <div className={styles['block-inputs']}>
             <Input
-              type="number"
+              type="text"
               name="id"
               placeholder="ID"
               value={newVideo.id}

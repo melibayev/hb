@@ -48,7 +48,7 @@
     &-product {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         column-gap: 0px;
         row-gap: 30px;
         padding: 0 20px;
@@ -59,14 +59,6 @@
     }
 }
 
-@media (max-width: 1100px) {
-    .wishlist {
-        &-product {
-            height: 100%;
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-}
 @media (max-width: 800px) {
     .wishlist {
         &-product {
@@ -81,8 +73,12 @@
         &-product {
             padding: 0;
             height: 100%;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             row-gap: 20px;
+            & > div {
+                min-width: auto;
+                max-width: calc(50vw);
+            }
         }
     }
 }
