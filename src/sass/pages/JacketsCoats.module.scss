@@ -12,3 +12,101 @@
         z-index: -1;
     }
 }
+
+#products {
+    padding: 50px 0;
+}
+
+.products {
+    &-category {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 100px;
+        padding: 0 20px;
+    }
+    &-category-item {
+        width: fit-content;
+        text-align: center;
+        &-img {
+            width: fit-content;
+            img {
+                padding: 8px 20px;
+                border: 1px solid rgba(68, 68, 68, .5);
+                border-radius: 50px;
+                width: 90px;
+            }
+        }
+    }
+    &-title {
+        font-size: 38px;
+        font-weight: 900;
+        letter-spacing: 0.25rem;
+        line-height: 1.75rem;
+        margin: 32px 0;
+        text-align: center;
+    }
+    &-list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 24px;
+        row-gap: 30px;
+        padding: 0 20px;
+        & > div {
+            min-width: 250px;
+            height: 100%;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .products {
+        &-list {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+@media (max-width: 575px) {
+    .products {
+        &-category {
+            column-gap: 40px;
+            overflow-x: scroll;
+        }
+        &-category-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            &-img {
+                img {
+                    padding: 6px 14px;
+                    border: 1px solid rgba(68, 68, 68, .5);
+                    border-radius: 50px;
+                    width: 70px;
+                }
+            }
+            & > p {
+                text-wrap: nowrap;
+            }
+        }
+        &-list {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 4px;
+            row-gap: 12px;
+            & > div {
+                min-width: auto;
+                max-width: calc(50vw - 20px);
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .products {
+        &-category {
+            column-gap: 24px;
+        }
+    }
+}
