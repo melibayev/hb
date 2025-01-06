@@ -90,7 +90,7 @@ useEffect(() => {
   ];
 
   if (!products) {
-    return <div>Loagins..</div>
+    return <div>Loading..</div>
   }
 
   return (

@@ -47,6 +47,27 @@
         margin: 32px 0;
         text-align: center;
     }
+    &-sort {
+        margin-bottom: 32px;
+        & > div {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            column-gap: 24px;
+            margin-right: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            svg {
+                font-size: 20px;
+            }
+            div {
+                display: flex;
+                align-items: flex-end;
+                column-gap: 0;
+            }
+        }
+    }
     &-list {
         width: 100%;
         display: grid;
