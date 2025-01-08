@@ -49,10 +49,19 @@ nav {
         justify-content: center;
         column-gap: 20px;
         a {
+            padding-bottom: 2px;
             font-size: 14px;
             font-weight: 500;
             color: #FFF;
             text-transform: uppercase;
+            transition: 0.5s;
+            border-bottom: 1px solid transparent;
+            &:hover {
+                border-color: #fff;
+            }
+        }
+        a.active {
+            border-color: #fff;
         }
     }
     &-items {

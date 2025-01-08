@@ -36,7 +36,18 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll); 
   }, [])
+    const [activeLink, setActiveLink] = useState(window.location.pathname);
 
+    useEffect(() => {
+        const handlePopState = () => setActiveLink(window.location.pathname);
+
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
+
+    const handleSetActive = (path) => {
+        setActiveLink(path);
+    };
   return (
     <header>
       <nav
@@ -51,8 +62,20 @@ const Header = () => {
                 <NavLink to={'/'}><img src={LOGO} alt="logo" /></NavLink>
             </div>
             <div className={styles['navbar-gender']}>
-                <NavLink to={'/'}>Men</NavLink>
-                <NavLink to={'/'}>Women</NavLink>
+              <NavLink
+                  to="/"
+                  className={activeLink === '/' ? styles.active : ''}
+                  onClick={() => handleSetActive('/')}
+              >
+                  Men
+              </NavLink>
+              <NavLink
+                  to="/women"
+                  className={activeLink === '/women' ? styles.active : ''}
+                  onClick={() => handleSetActive('/women')}
+              >
+                  Women
+              </NavLink>
             </div>
             <div className={styles['navbar-items']}>
                 <p><IoIosSearch /></p>

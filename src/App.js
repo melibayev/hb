@@ -15,6 +15,7 @@ import EditImage from './components/Admin/Images/EditImage';
 import EditVideo from './components/Admin/Videos/EditVideo';
 import MaleShoes from './pages/MaleShoes';
 import JacketsCoats from './pages/JacketsCoats';
+import Women from './pages/Women';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/cart' element={<Cart />} />
           <Route path='/male/shoes' element={<MaleShoes />} />
           <Route path='/male/jackets-coats' element={<JacketsCoats />} />
+          <Route path='/women' element={<Women />} />
         </Route>
       </Routes>
 
