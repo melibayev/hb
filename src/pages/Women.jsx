@@ -10,9 +10,10 @@ const Women = () => {
   return (
     <>
         <section id={styles['home-banner']}>
-          <video muted autoPlay loop playsInline>
+          {/* <video muted autoPlay loop playsInline >
             <source src={video.video} type='video/mp4'/>
-          </video>
+          </video> */}
+          <video playsInline="" muted autoPlay loop src={video.video} tabindex="-1" aria-hidden="true"></video>
           <div className="container">
           </div>
         </section>
