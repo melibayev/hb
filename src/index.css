@@ -42,7 +42,7 @@ button {
   cursor: pointer;
 }
 
-/* slider styles (start) */
+/* home slider styles (start) */
 .nextArrow, 
 .prevArrow {
   display: block !important;
@@ -79,7 +79,49 @@ button {
   left: 10px !important;
   z-index: 10;
 }
-/* slider styles (end) */
+/* home slider styles (end) */
+
+
+/* women slider styles (start) */
+.nextArrow-women, 
+.prevArrow-women {
+  display: block !important;
+  padding: 20px !important;
+  background-color: #fff !important;
+  border-radius: 50%;
+}
+
+.nextArrow-women::before,
+.prevArrow-women::before {
+  display: none;
+}
+
+.nextArrow-women svg {
+  margin-top: -12px;
+  margin-left: -12px;
+  z-index: 1000;
+  font-size: 24px;
+  color: #000;
+}
+
+.prevArrow-women svg {
+  margin-top: -12px;
+  margin-left: -12px;
+  z-index: 1000;
+  font-size: 24px;
+  color: #000;
+}
+
+.slick-next {
+  right: 10px !important;
+}
+
+.slick-prev {
+  left: 10px !important;
+  z-index: 10;
+}
+/* women slider styles (end) */
+
 
 /* footer menu styles (start) */
 .ant-menu-submenu-title {
